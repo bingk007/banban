@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>运行状态</title>
+     <style>
+     .button {
+     -webkit-transition-duration: 0.4s;
+     transition-duration: 0.4s;
+     padding: 16px 32px;
+     text-align: center;
+     background-color: white;
+     color: black;
+     border: 2px solid #4CAF50;
+     border-radius:5px;
+     }
+     .button:hover {
+     background-color: #4CAF50;
+     color: white;
+     }
+     </style>
+</head>
+	<script type="text/javascript">
+		function button_onclick(){
+            //这里写你要执行的语句
+            alert("这是调用函数");
+            }
+	</script>
+<body>
+<p>
+    当前已有跑数任务正在执行中，期间请勿重复发起，如有需要请先中止跑数！
+</p>
+<a>
+<button class="button" onclick="javascript:button_onclick();" >中止当前跑数</button>
+</a>
+</body>
+</html>

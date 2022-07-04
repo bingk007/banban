@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>开盲盒送人跑数</title>
+	</head>
+	<script type="text/javascript">
+		//页面加载
+		window.onload = function(){
+			var checkAll = document.getElementById("checkAll");
+			var hobby = document.getElementsByClassName("check");
+			//全选
+			checkAll.onclick = function(){
+				var ok = this.checked; //checked为布尔值
+				for(var i in hobby){
+					hobby[i].checked = ok;
+				}
+			};
+		};
+	</script>
+	<body>
+    <form action="https://test.overseaban.com/_dev4/test/index500?type=3" method="post">
+        <h2>开盲盒送人跑数</h2>
+                <h4>选择测试环境和大区</h4>
+        <div>
+            <select name="area">
+              <option value="CN">华语区</option>
+              <option value="TH">泰国</option>
+              <option value="VI">越南</option>
+              <option value="MY">马来西亚</option>
+              <option value="ID">印度尼西亚</option>
+              <option value="SA">沙特阿拉伯</option>
+            </select>
+        </div>
+        <br />
+        <div>
+            <select name="env">
+              <option value="test.overseaban.com">dev</option>
+              <option value="test.overseaban.com/_dev4">dev4</option>
+            </select>
+        </div>
+        <br />
+         <h4>调整历史返奖率</h4><h6>*输入示例：72,86（72是上拉的阀值，86是下拉的阀值，中间','是英文字符)</h6>
+        <div>
+          gold-3257:<input type="text"  name="rate_gold_3257" onkeyup="this.value=this.value.replace(/[， ]/g,'')"/>&nbsp;
+          gold-688:<input type="text"  name="rate_gold_688" onkeyup="this.value=this.value.replace(/[， ]/g,'')"/>&nbsp;
+          gold-3262:<input type="text"  name="rate_gold_3262" onkeyup="this.value=this.value.replace(/[， ]/g,'')"/>&nbsp;
+          silver-2355:<input type="text"  name="rate_silver_2355" onkeyup="this.value=this.value.replace(/[， ]/g,'')"/>&nbsp;
+          <br />
+          silver-3082:<input type="text"  name="rate_silver_3082" onkeyup="this.value=this.value.replace(/[， ]/g,'')"/>&nbsp;
+          copper-268:<input type="text"  name="rate_copper_268" onkeyup="this.value=this.value.replace(/[， ]/g,'')"/>&nbsp;
+          copper-267:<input type="text"  name="rate_copper_267" onkeyup="this.value=this.value.replace(/[， ]/g,'')"/>&nbsp;&nbsp;
+        </div>
+        <br />
+        <br />
+		<h4>选择测试MainCid</h4>
+        <div>
+			<input id="checkAll" type="checkbox"/>全选
+		</div>
+		<div id="dv">
+          <input class="check" type="checkbox" name="gold_3257" />gold-3257
+          <input class="check" type="checkbox" name="gold_688"/>gold-688
+          <input class="check" type="checkbox" name="gold_3262"/>gold-3262
+          <input class="check" type="checkbox" name="silver_2355"/>silver-2355
+          <input class="check" type="checkbox" name="silver_3082"/>silver-3082
+          <input class="check" type="checkbox" name="copper_268"/>copper-268
+          <input class="check" type="checkbox" name="copper_267"/>copper-267
+		</div>
+        <br />
+        <br />
+        <h4>选择测试量级</h4><h6>(*这里设置的是每个MainCid的测试量级，用户为新注册)</h6>
+        <div>
+            <select name="times">
+              <option value="100000">10W次/10人</option>
+              <option value="200000">20W次/20人</option>
+              <option value="300000">30W次/30人</option>
+              <option value="500000">50W次/50人</option>
+              <option value="1000000">100W次/100人</option>
+            </select>
+        </div>
+        <br />
+        <br />
+        <div align="center">
+          <input type="submit" value="提交测试" style="width:150px;height:50px"/>
+        </div>
+    </form>
+	</body>
+</html>
