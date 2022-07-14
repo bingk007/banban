@@ -6,8 +6,8 @@ from probability import Probability
 from report import Report
 import sys
 import subprocess
-import requests
 import json
+from connsql import ConnSql
 
 box_send = {
     'gold': [3300000, 48, 6600],
@@ -55,11 +55,7 @@ def process_form(play_type_id, dict_box_params):
                 if param[:4] == 'rate':
                     type_maincid = param[5:].split('_')
                     history_rate = dict_box_params[param].split(',')
-                    change_rate = requests.get("https://test.overseaban.com/_dev4/test/index400?"
-                                               "type={}&mainCid={}&low={}&high={}&boxtype={}".format(
-                        play_type_id, type_maincid[1], history_rate[0], history_rate[1], type_maincid[0]))
-                    if change_rate.json() != 'success':
-                        continue
+                    ConnSql.insert_box_rate(play_type_id,type_maincid[1],history_rate[0],history_rate[1],type_maincid[0])
                 elif 'on' in dict_box_params[param]:
                     type_maincid = param.split('_')
                     temp_list = [type_maincid[0], type_maincid[1], int(times / 10000), int(times / 500)]

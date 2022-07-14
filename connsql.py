@@ -86,6 +86,18 @@ class ConnSql:
             ConnSql.conn.commit()
 
     @staticmethod
+    def insert_box_rate(type, mainCid, low, high, boxtype):
+        sql = "insert into xs_boxs_set_records (type,mainCid,low,high,boxtype,dateline) values({},{},{},{},{},{})" \
+              "".format(type, mainCid, low, high, boxtype,int(time.time()))
+        try:
+            ConnSql.cur.execute(sql)
+        except Exception as error:
+            ConnSql.conn.rollback()
+            print('insert box_rate fail', error)
+        finally:
+            ConnSql.conn.commit()
+
+    @staticmethod
     def update_money(uid):
         sql = "update xs_user_money set money=999999999 where uid={}".format(uid)
         try:
