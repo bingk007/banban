@@ -87,7 +87,7 @@ class ConnSql:
 
     @staticmethod
     def insert_box_rate(type, mainCid, low, high, boxtype):
-        sql = "insert into xs_boxs_set_records (type,mainCid,low,high,boxtype,dateline) values({},{},{},{},{},{})" \
+        sql = "insert into xs_boxs_set_records (type,mainCid,low,high,boxtype,dateline) values({},{},{},{},'{}',{})" \
               "".format(type, mainCid, low, high, boxtype,int(time.time()))
         try:
             ConnSql.cur.execute(sql)
